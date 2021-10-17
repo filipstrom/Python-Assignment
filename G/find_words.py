@@ -20,6 +20,7 @@ def get_words(row):
                 words.append(newword)
     return words
 
+
 def save_words(file_path, words):
     file = open(file_path, "w", encoding="utf-8")
     for word in words:
@@ -28,7 +29,8 @@ def save_words(file_path, words):
 
 
 # Read text files
-path = r"C:\Users\filip\Programering\Gitlab\assignment-03\G\Textfiles\large_texts.txt" + r"\eng_news_100K-sentences.txt"
+path = (r"C:\Users\filip\Programering\Gitlab\assignment-03\G\Textfiles" +
+        r"\large_texts.txt\eng_news_100K-sentences.txt")
 rows = read_file(path)
 print(f"\nRead {len(rows)} lines from file {path}")
 
@@ -38,6 +40,7 @@ for row in rows:
     w = get_words(row)  # Returns a list of words
     words += w
 # Save words in file
-outpath = r"C:\Users\filip\Programering\Gitlab\assignment-03\G\output\\" + f"output_{len(words)}_words.txt"
+outpath = (r"C:\Users\filip\Programering\Gitlab\assignment-03\G\output\\" + 
+           f"output_{len(words)}_words.txt")
 save_words(outpath, words)
 print(f"Saved {len(words)} words in file {outpath}")  # About 1.8 million words

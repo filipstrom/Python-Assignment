@@ -13,8 +13,10 @@ def std(lst):
     return math.sqrt(mean(newlst))
 
 
-path = r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_A.txt"
-path2 = r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_B.txt"
+path = (r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers" +
+        r"\file_10000integers_A.txt")
+path2 = (r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers" + 
+         r"\file_10000integers_B.txt")
 
 file = open(path, "r").readlines()
 
@@ -36,4 +38,3 @@ print("mean A:", mean(numbers))
 print("std A:", std(numbers))
 print("Mean B:", mean(numbers2))
 print("STD B:", std(numbers2))
-

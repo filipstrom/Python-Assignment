@@ -3,43 +3,42 @@ def count_different(lst):
 
 
 def count_occurrences(lst):
-    newdict = {}
-    for i in lst:
-        if i in newdict:
-            newdict[i] = 1
-        else:
-            newdict[i] += 1
-    print(newdict)
-
-    print({item: lst.count(item) for item in lst})
     return {item: lst.count(item) for item in lst}
+
 
 def filesplit(file, string):
     numbers = []
     for line in file:
-        numbers += {int(num) for num in line.split(string)}
+        numbers += [int(num) for num in line.split(string)]
     return numbers
 
-file2 = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_B.txt")
 
-file = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_A.txt")
+def getValue(tpl):
+    return tpl[1]
+
+
+def mostCommon5(dct):
+    items = list(dct.items())
+    valueSorted = (sorted(items, key=getValue))[::-1]
+    for k, v in valueSorted[:5]:
+        print(k, "\t", v)
+
+
+file = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G" +
+            r"\10000_integers\file_10000integers_A.txt").readlines()
+file2 = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G" +
+             r"\10000_integers\file_10000integers_B.txt").readlines()
 numbers = filesplit(file, ", ")
 numbers2 = filesplit(file2, ":")
-
-print(count_different(numbers))
-print(count_different(numbers2))
 dictnumbers = count_occurrences(numbers)
+dictnumbers2 = count_occurrences(numbers2)
 
-listsorted = sorted(dictnumbers.values())
-dictsorted = {}
-listkeys = []
-for i in reversed(listsorted):
-    for k in dictnumbers.keys():
-        if dictnumbers[k] == i:
-            dictsorted[k] = dictnumbers[k]
-            listkeys.append(k)
-            break
-print(dictsorted)
+print("For File A:")
+print("Different integers", count_different(numbers))
 print("most common numbers")
-for i in range(0, 5):
-    print(listkeys[i])
+mostCommon5(dictnumbers)
+print()
+print("For File B:")
+print("Different integers ", count_different(numbers2))
+print("most common numbers")
+mostCommon5(dictnumbers2)
