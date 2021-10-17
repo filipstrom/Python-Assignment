@@ -12,9 +12,9 @@ def filesplit(file, string):
         numbers += {int(num) for num in line.split(string)}
     return numbers
 
-file2 = open(r"C:\Users\filip\Programering\python_courses\1DV501\fs223gv_assignment3\G\10000_integers\file_10000integers_B.txt")
+file2 = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_B.txt")
 
-file = open(r"C:\Users\filip\Programering\python_courses\1DV501\fs223gv_assignment3\G\10000_integers\file_10000integers_A.txt")
+file = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_A.txt")
 numbers = filesplit(file, ", ")
 numbers2 = filesplit(file2, ":")
 print(count_different(numbers))
