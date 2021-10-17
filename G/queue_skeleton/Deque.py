@@ -29,11 +29,14 @@ class Deque:
 
     # Returns a string representation of the current deque content
     def to_string(self):
-        if self.size == 0:
-            print("Error empty deque")
-            return None
-        else:
-            return f"Head? {self.head.value}, tail? {self.tail.value}, size? {self.size}"
+        string = "{ "
+        node = self.head
+        for i in range(self.size):
+            string += str(node.value) + " "
+            node = node.nxt
+        string += "}"
+        return string
+
 
     # Add element n as last entry in deque
     def add_last(self, n):
@@ -54,50 +57,51 @@ class Deque:
         if self.tail == None:
             print("Error empty deque")
             return None
-        return self.tail
+        return self.tail.value
 
     # Returns (without removing) the first entry in the deque
     # Gives error message and returns None when accessing empty deque.
     def get_first(self):
         if self.head == None:
-            print("Error empty deque")
+            print("You can't access and empty queue")
             return None
-        return self.head
+        return self.head.value
 
     # Removes and returns the first entry in the deque.
     # Gives error message and returns None when accessing empty deque.
     # The case size = 1 requires speciall handling
     def remove_first(self):
         if self.size == 0:
-            print("Error empty deque")
+            print("You can't access an empty queue")
             return None
         elif self.size == 1:
+            retur = self.head.value
             self.tail = None
             self.head = None
         else:
+            retur = self.head.value
             self.head = self.head.nxt
         self.size -= 1
-        return self.head
+        return retur
         
 
     # Removes and returns the last entry in the deque.
     # Gives error message and returns None when accessing empty deque.
     # The case size = 1 requires speciall handling
     def remove_last(self):
-        print(self.size)
         if self.size == 0:
             print("Error empty deque")
             return None
         elif self.size == 1:
+            retur = self.tail.value
             self.tail = None
             self.head = None
         else:
+            retur = self.tail.value
             nxt = self.head
             for i in range(self.size-2):
-                print(i, self.size)
-                print(nxt)
                 nxt = nxt.nxt
             nxt.nxt = None
             self.tail = nxt
         self.size -= 1
-        return self.tail
+        return retur

@@ -3,6 +3,14 @@ def count_different(lst):
 
 
 def count_occurrences(lst):
+    newdict = {}
+    for i in lst:
+        if i in newdict:
+            newdict[i] = 1
+        else:
+            newdict[i] += 1
+    print(newdict)
+
     print({item: lst.count(item) for item in lst})
     return {item: lst.count(item) for item in lst}
 
@@ -17,6 +25,7 @@ file2 = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers
 file = open(r"C:\Users\filip\Programering\GitLab\assignment-03\G\10000_integers\file_10000integers_A.txt")
 numbers = filesplit(file, ", ")
 numbers2 = filesplit(file2, ":")
+
 print(count_different(numbers))
 print(count_different(numbers2))
 dictnumbers = count_occurrences(numbers)

@@ -5,6 +5,7 @@ class MultiDisplay:
     def set_display(self, message, count):
         self.set_message(message)
         self.set_count(count)
+        self.display()
 
     def set_message(self, message):
         self.message = message

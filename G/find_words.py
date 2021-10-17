@@ -5,21 +5,25 @@ def read_file(file_path):
     return lines
 
 
+# Find every word in a row
 def get_words(row):
     words = []
     for word in row.lower().split():
-        isValid = True
+        newword = ""
         for c in word:
-            if not c.isalpha() or c == "'" or c == "-":
-                isValid = False
-        if isValid:
-            words.append(word +" ")
+            newword += c.strip("1234567890!?#&.,_|\n:;()%¤$—–-•’”“")
+        if newword != "":
+            if len(newword) == 1:
+                if newword == "a" or newword == "i":
+                    words.append(newword)
+            else:
+                words.append(newword)
     return words
 
 def save_words(file_path, words):
     file = open(file_path, "w", encoding="utf-8")
     for word in words:
-        file.write(word)
+        file.write(word + " ")
     file.close()
 
 
